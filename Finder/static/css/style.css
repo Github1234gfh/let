@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: "Pixel";
+    src: url("../fonts/Undertale-Battle-Font.ttf");
+}
+.wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px ;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.nav__right {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+}
+
+/* -- change language -- */
+
+.lang {
+    gap: 15px;
+    display: flex;
+}
+
+.lang__self {
+    transition: .25s;
+    cursor: pointer;
+    color: inherit;
+    font-size: 20px;
+}
+
+.lang__self:hover {
+    font-size: 25px;
+    text-decoration: underline;
+}   
+
+/* -- change theme -- */
+    
+/* dark-mode */
+
+.dark-mode {
+    color: #fff;
+    background-color: rgb(28, 28, 28);
+}
+
+.dark-mode .close__svg {
+    fill: #fff;
+}
+
+.derk-mode .btn__search {
+    fill: #fff;
+}
+
+.dark-mode .search__input {
+    color: #848494;
+}
+
+.dark-mode .search__input::placeholder {
+    color: #848494;
+}
+
+.dark-mode .text__input {
+    background: #323239;
+}
+
+.dark-mode .text__input:hover {
+    outline: solid .5px #adadb8;
+}
+
+.dark-mode .text__input:focus-within {
+    background: #000;
+    outline: solid 0.7px #772ce8;
+}
+
+/* light-mode */
+
+.light-mode {
+    color: #000;
+    background-color: #fff;
+}
+
+.light-mode .close__svg {
+    fill: #000;
+}
+
+.light-mode .lang__self:active {
+    color: #5109e1;
+}
+
+.light-mode .btn__search {
+    fill: #000;
+}
+
+.light-mode .search__input {
+    color: #848494;
+}
+
+
+.light-mode .search__input::placeholder {
+    color: #848494;
+}
+
+.light-mode .text__input {
+    color: #848494;
+    background: #f7f7f8;
+}
+
+.text__input:hover {
+    outline: .5px solid  #adadb8; 
+}
+
+.light-mode .text__input:focus-within {
+    background: #fff;
+    outline: solid 0.7px #772ce8;
+}
+
+/* svg theme */
+
+.svg__button {
+    padding: 5px 5px;
+    border: none;
+    background: none;
+    transition: .2s;
+    border-radius: 50%;
+    outline: none;
+}
+
+.svg__button:hover {
+    transition: 0.1;
+    background-color: #c9c9c9;
+}
+
+.svg__sun {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.svg__luna {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.dark-mode .svg__button:hover {
+    background: #808080;
+}
+
+.light-mode .svg__button:hover {
+    background: #e3e2e2;
+}
+
+.dark-mode .svg__luna,
+.light-mode .svg__sun{
+    display: none;
+}
+
+/* -- change find -- */
+
+.find__switch {
+    display: flex;
+}
+
+.search__text {
+    color: inherit;
+    cursor: pointer;
+}
+
+
+/* -- title-logo -- */
+
+.title {
+    color: inherit;
+    display: flex;
+    align-self: center;
+    align-items: flex-end;
+    margin-bottom: 40px;
+}
+
+.logo {
+    font-weight: 620;
+    font-size: 60px;
+}
+
+.search__text__word_title {
+    color: #772ce8;
+}
+
+.search__text__pict_title {
+    color: #772ce8;
+}
+
+/* -- search --  */
+
+.text__input {
+    display: flex;
+    width: 410px;
+    gap: 5px;
+    transition: .3s;
+    justify-content: space-between;
+    align-self: center;
+
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 50px;
+}
+
+.text__input_enter{
+    margin-bottom: 40px;
+}
+
+.search__input {
+    padding: 10px 20px;
+    background: none;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 20px;
+}
+
+.close__svg {
+    transition: .2s;
+    display: none;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.close__svg:hover {
+    fill: red;
+}
+
+.text__input:focus-within .close__svg {
+    display: block;
+}
+
+.btn__search {
+    cursor: pointer; 
+    padding: 10px 20px 10px 6px;
+    fill: #fff;
+    display:flex;
+    background: none;
+    border: none;
+    align-items: center;
+}
+
+.img__search {
+    width: 100%;
+    width: 20px;
+    height: 20px;
+}
+
+.search__input::placeholder {
+    font-size: 20px;
+    background: none;
+}
+
+/* -- courses -- */
+
+.courses {
+    align-self: center;
+    display: flex;
+    gap: 20px;
+}
+
+.course__wrap {
+    display: flex;
+    gap: 8px;
+}
+
+.course {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.course_text {
+    color: #808080;
+}
+
+/* -- output result -- */
+
+.results {
+    align-self: center;
+    display: flex;
+    gap: 5px;
+    margin-bottom: 30px;
+}
+
+.result {
+    font-size: 30px;
+}
+
+.sent__item {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.border__sent {
+    border-bottom: solid 0.5px #772ce8;
+    margin-bottom: 25px;
+}
