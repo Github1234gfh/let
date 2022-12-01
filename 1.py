@@ -4,54 +4,41 @@ def rand4():
 	return random.random() *4
 
 # -- task  1 --
-#def rand8to10():
-#	a = rand4()+8
-#	while a>=10:
-#		a = rand4()+8
-#	return a
-#print(rand8to10())
+def rand8to10():
+	a = rand4()+8
+	while a>=10:
+		a = rand4()+8
+	return a
 
 # -- task  2 -- 
-#list_of_ints = list(map(int, input('List of numbers: ').split(' ')))
-#k = int(input('Distance number: '))
-#def findDuplicates(list, c):
-#	for i in range(0, len(list)-1):
-#		try:
-#			if list[i]==list[i+c-1]:
-#				return i
-#		except:
-#			pass
-#	return -1
-#print(findDuplicates(list_of_ints, len(list_of_ints)))
+def findDuplicates(list, c):
+	for i in range(0, len(list)-1):
+		try:
+			if list[i]==list[i+c-1]:
+				return i
+		except:
+			pass
+	return -1
 
 # -- task  3 --
-#list_of_ints = list(map(int, input('List of numbers: ').split(' ')))
-#summ = int(input('Summ numbers: '))
-#l = []
-#def hasTerms(list, c):
-#	if c > -1:
-#		hasTerms(list,c- 1)
-#		b = c
-#		while b<len(list_of_ints)-1:
-#			l.append(list[c]+list[b+1])
-#			b+=1
-#	if summ in l:
-#		return True
-#	return False
-#print(hasTerms(list_of_ints, len(list_of_ints)))
+def hasTerms(list, c):
+	if c > -1:
+		hasTerms(list,c- 1)
+		b = c
+		while b<len(list_of_ints)-1:
+			l.append(list[c]+list[b+1])
+			b+=1
+	if summ in l:
+		return True
+	return False
 
 # -- task  4 -- 
-#list_of_ints = list(map(int, input('List of numbers: ').split(' ')))
-#x = int(input('Delete Number: '))
-#def deleteInt():
-#	if x in list_of_ints:
-#		list_of_ints.pop(list_of_ints.index(x))
-#		deleteInt()
-#	return list_of_ints
-#print(deleteInt())
+def deleteInt(list):
+	while x in list:
+		list.pop(list.index(x))
+	return list
 
 # -- task 5 --
-list_hex = input('Enter 2 hex: ').lower().split(' ')
 def add(str1, str2):
 	arr = {
 	'a': 10,
@@ -95,6 +82,4 @@ def add(str1, str2):
 			result += str(suma)
 	if rev:
 		result += str(rev)
-	result = result[::-1]
-	return result.upper()
-print(add(list_hex[0], list_hex[1]))
+	return result[::-1].upper()
