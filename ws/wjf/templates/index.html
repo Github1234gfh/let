@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<div class="wrap">
+			<div class="form__back">
+				<div class="title">Make an appointment</div>
+				<form method="POST" class="form" action="">
+					{% csrf_token %}
+					<div class="flex__1">
+						<input class="input__1" type="name" placeholder="Name">
+						<input class="input__1" type="email" placeholder="Email">
+					</div>
+					<div class="flex__1">
+						<input class="input__1" type="call" placeholder="Phone Number">
+						<input class="input__1" type="text" placeholder="Select Service">
+					</div>
+					<input class="input__1 input__1_fdk" type="text" placeholder="Tell us about the car needing service(s)">
+					<button class="form__btn">Make an Appointment
+						<div class="btn__elem">
+							<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M8 13.9334L7.06 12.9934L10.78 9.26676H2.66667V7.93343L10.78 7.93343L7.06 4.20676L8 3.26676L13.3333 8.60009L8 13.9334Z" fill="white"/>
+							</svg>
+						</div>
+					</button>
+				</form>
+			</div>
+			<div class="text__block">
+				<h1 class="title title_gkfl">Maxime placeat facere<br> possimus omnis</h1>
+				<h1 class="kgf">17k</h1>
+				<p class="text">customers served (and counting)</p>
+			</div>
+		</div>
+		<img class="img__1" src=" {% static '/img/1.png' %}" alt="">
+		<img class="img__2" src=" {% static '/img/1.png' %}" alt="">
+	</div>
+</body>
+</html>
