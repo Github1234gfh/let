@@ -1,7 +1,8 @@
+{% load static %}
 <div class="container container_sec__4">
     <div class="sec__4__wrap">
         <div class="sec__4__content">
-            <h1 class="title">При фиксации брекетов на обе челюсти <br> получи сертификат на 7000 рублей</h1>
+            <h1 class="title">{{ title }}</h1>
             <div class="title__text title__text_hjfj title__text_hjfj_gf">Укажите вой номер телефона, мы перезвоним <br>и подберем для вас удобное время приёма<br>.Или позвоните нам сами — <span>+7 900 333 10 40</span></div>
             <form class="sec__4__form" action="">
                 <input class="ces__4__input" type="call" placeholder="Телефон">
@@ -9,5 +10,6 @@
             </form>
             <p class="title__text title__text title__text_gkf">Записываясь на услугу вы даёте согласие на<span> обработку<br> своих персональных данных</span></p>
         </div>
+        <img class="sec__4__img" src="{% static 'img/sec__4.png' %}" alt="">
     </div>
 </div>

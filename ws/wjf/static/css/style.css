@@ -317,6 +317,10 @@
 }
 
 .sec__4__wrap {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
 	padding: 63px 140px;
 	background: linear-gradient(84.27deg, #E6F2FF 0%, #FAF1ED 100%);
 }
@@ -350,6 +354,147 @@
 }
 
 .title__text_gkf span {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.sec__4__img {
+	position: absolute;
+	width: 752px;
+	height: 752px;
+	right: 150px;
+	bottom: 0px;
+	z-index: 100;
+}
+
+/* sec 5 */
+.wrap___sec__5 {
+	padding: 101px 130px 160px;
+	display: flex;
+	flex-direction: column;
+	gap: 64px;
+}
+
+.sec__5__main__block {
+	display: flex;
+	gap: 195px;
+}
+
+.sec__5__block__text {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.sec__5__block__text__1 {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.sec__5__block__text__2 {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.sec__5__t__1 {
+	display: flex;
+	justify-content: space-between;
+}
+
+.sec__5__text__1 {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.sec__5__imgs {
+	display: flex;
+	gap: 41px;
+	align-items: center;
+}
+
+.sec__5__img__1 {
+	height: 82px;
+}
+
+/* sec 6 */
+
+.wrap__sec__6 {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 100px;
+	padding: 100px 130px 220px;
+}
+
+.sec__6__card {
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	gap: 54px;
+}
+
+.sec__6__card__item {
+	display: flex;
+	background: #F7F8FA;
+	box-shadow: 0px 13px 50px rgba(192, 192, 192, 0.2);
+	border-radius: 4px;
+}
+
+.title__block_sec__6 {
+	padding:60px 0px 250px 54px;
+}
+
+.title_sec__6 {
+	font-size: 36px;
+}
+
+.title__text_sec__6 {
+	font-size: 20px;
+}
+
+.slider {
+	display: flex;
+	gap: 18px;
+}
+
+.arr {
+	display: flex;
+	width: 56px;
+	height: 56px;
+	position: absolute;
+	top: 2410px;
+	border: 2px solid #2E3A59;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	transition: .2s;
+	cursor: pointer;
+}
+
+.arr_right {
+	right: 50px;
+}
+
+.arr_left {
+	left: 50px;
+}
+
+.arr:hover {
+	background: rgb(243, 243, 243);
+}
+
+.footer__imgs {
+	display: flex;
+	gap: 45px;
+}
+
+.title__text_gkf {
+	text-align: center;
+}
+
+.title__text_nfdm {
 	text-decoration: underline;
 	cursor: pointer;
 }
