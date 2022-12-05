@@ -16,14 +16,14 @@
 				<form method="POST" class="form" action="">
 					{% csrf_token %}
 					<div class="flex__1">
-						<input class="input__1" type="name" placeholder="Name">
-						<input class="input__1" type="email" placeholder="Email">
+						<input class="input__1" name="name" placeholder="Name">
+						<input class="input__1" name="email" placeholder="Email">
 					</div>
 					<div class="flex__1">
-						<input class="input__1" type="call" placeholder="Phone Number">
-						<input class="input__1" type="text" placeholder="Select Service">
+						<input class="input__1" name="call" placeholder="Phone Number">
+						<input class="input__1" name="text" placeholder="Select Service">
 					</div>
-					<input class="input__1 input__1_fdk" type="text" placeholder="Tell us about the car needing service(s)">
+					<input class="input__1 input__1_fdk" name="text" placeholder="Tell us about the car needing service(s)">
 					<button class="form__btn">Make an Appointment
 						<div class="btn__elem">
 							<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
