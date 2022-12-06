@@ -13,17 +13,17 @@
 		<div class="wrap">
 			<div class="form__back">
 				<div class="title">Make an appointment</div>
-				<form method="POST" class="form" action="">
+				<form method="POST" class="form" action="appointment/">
 					{% csrf_token %}
 					<div class="flex__1">
-						<input class="input__1" name="name" placeholder="Name">
-						<input class="input__1" name="email" placeholder="Email">
+						<input class="input__1" name="name" type="name" placeholder="Name">
+						<input class="input__1" name="email" type="email" placeholder="Email">
 					</div>
 					<div class="flex__1">
-						<input class="input__1" name="call" placeholder="Phone Number">
-						<input class="input__1" name="text" placeholder="Select Service">
+						<input class="input__1" name="call" type="call" placeholder="Phone Number">
+						<input class="input__1" name="sel" type="text" placeholder="Select Service">
 					</div>
-					<input class="input__1 input__1_fdk" name="text" placeholder="Tell us about the car needing service(s)">
+					<input class="input__1 input__1_fdk" name="text" type="text" placeholder="Tell us about the car needing service(s)">
 					<button class="form__btn">Make an Appointment
 						<div class="btn__elem">
 							<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
