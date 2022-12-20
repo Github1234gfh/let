@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static '/css/style.css' %}">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<div class="wrap">
+			<form action="" method="POST" class="form">
+				{% csrf_token %}
+				<textarea type="text" class="fgdf fgdf_gf" name="text">{{ data.text }}</textarea>
+				<button class="add__btn">Сохранить</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
+

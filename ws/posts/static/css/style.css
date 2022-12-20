@@ -1,0 +1,105 @@
+* {
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+}
+
+.container {
+	height: 100vh;
+}
+
+.wrap {
+	
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	margin: 0 auto;
+	max-width: 1920px;
+	padding: 100px 60px;
+}
+
+.cards {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	background: rgb(6, 0, 33);
+	padding: 50px;
+}
+
+.title {
+	color: #ffff;
+	font-size: 40px
+}
+
+.text {
+	color: #ffff;
+}
+
+.add__btn {
+	border-radius: 5px;
+	border: none;
+	background: rgb(149, 254, 221);
+	padding: 10px;
+	transition: .2s;
+	align-self: center;
+}
+
+.add__btn:hover {
+	background: rgb(109, 182, 246);
+	
+}
+
+/* form */
+
+.container_form {
+	display: flex;
+	justify-content: center;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	background: rgb(6, 0, 33);
+	padding: 100px 50px;
+	gap: 30px;
+}
+
+.fgdf {
+	border: gray solid 2px;
+	border-radius: 10px;
+	padding: 10px;
+	color: black;
+}
+
+.fgdf::placeholder {
+	color: black;
+}
+
+.fgdf_gf {
+	height: 300px;
+}
+
+.block {
+	align-self: flex-end;
+	display: flex;
+	gap: 20px;
+}
+
+.jkgf {
+	color: rgb(59, 255, 255);
+	transition: .2s;
+}
+
+.jkgf:hover {
+	color: purple;
+}
+
+.error {
+	color: red;
+}
