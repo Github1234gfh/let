@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+	<div class="wrap">
+		<div class="content">
+			{% if user.is_authenticated %}
+				<div class="reg__block">
+					<p><a href="{% url 'logout' %}">Log Out</a></p>
+				</div>
+				<div class="books">
+					{% include 'includes/menu.html' %}
+					{% include 'includes/content.html' %}
+					<a href="{% url 'add' %}" class="ghjk"><button class="book book_jgkh">Добавить книгу</button></a>
+				</div>
+			{% else %}
+				<div class="reg__block">
+					<a href="{% url 'login' %}">Log In</a>
+					|
+					<a href="{% url 'signup' %}">Sign Up</a>
+				</div>
+				<div class="books">
+					{% include 'includes/menu.html' %}
+					{% include 'includes/content.html' %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

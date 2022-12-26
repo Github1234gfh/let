@@ -1,0 +1,6 @@
+<div class="manu">
+	<h2>Категории: </h2>
+	{% for i in menu %}
+		<a class="menu__item" href="category/{{i.id}}"><button class="book book_gkfo">{{ i }}</button></a>
+	{% endfor %}
+</div>

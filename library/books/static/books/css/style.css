@@ -1,0 +1,86 @@
+* {
+	text-decoration: none;
+}
+
+.container {
+	max-width: 1920px;
+	margin: 0 auto;
+}
+
+.wrap {
+	padding: 50px;
+}
+
+/* sign up / log in */
+
+.reg {
+	padding: 100px;
+	justify-content: center;
+	display: flex;
+}
+
+.jkgf {
+	display: flex;
+	flex-direction: column;	
+}
+
+/* home */
+
+.content {
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.reg__block {
+	align-self: flex-end;
+	display: flex;
+	gap: 15px;
+}
+
+.manu {
+	display: flex;
+	align-items: center;
+	gap: 30px;
+}
+
+/*  books  */
+
+.books {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+	padding: 0px 50px;
+	/*align-items: center;*/
+}
+
+.book {
+	padding: 20px;
+	background: rgb(209, 209, 209);
+	border: none;
+	border-radius: 10px;
+}
+
+.book_jgkh {
+	transition: .2s;
+	cursor: pointer;
+}
+
+.book_jgkh:hover {
+	background: rgb(168, 168, 168);
+}
+
+.ghjk {
+	align-self: flex-start;
+}
+
+.book_gkfo {
+	padding: 8px;
+	cursor: pointer;
+	transition: .2s;
+}
+
+.book_gkfo:hover {
+	background: rgb(197, 197, 197);
+}

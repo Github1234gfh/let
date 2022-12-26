@@ -1,0 +1,9 @@
+
+{% for i in books %}
+	<div class="book">
+		<h1>{{ i.name_book }}</h1>
+		<p>Автор - {{ i.autor }}</p>
+		<p>Категория - {{ i.category }}</p>
+		<p>дата издания - {{ i.date }}</p>
+	</div>
+{% endfor %}
