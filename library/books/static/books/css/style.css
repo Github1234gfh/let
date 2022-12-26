@@ -2,6 +2,32 @@
 	text-decoration: none;
 }
 
+
+/* animation */
+.anime {
+	transform: scale(0);
+	opacity: 0;
+}
+
+.hide {
+	animation-name: hide;
+	animation-duration: .2s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes hide {
+	0% {
+		visibility: visible;
+		padding: 20px;
+	} 
+	100% {
+		padding: 0;
+		visibility: hidden;
+		margin: 0;
+		font-size: 0;
+	}
+}
+
 .container {
 	max-width: 1920px;
 	margin: 0 auto;
@@ -50,15 +76,15 @@
 .books {
 	display: flex;
 	flex-direction: column;
-	gap: 50px;
 	padding: 0px 50px;
-	/*align-items: center;*/
 }
 
 .book {
+	margin: 25px 0px;
 	padding: 20px;
 	background: rgb(209, 209, 209);
 	border: none;
+	transition: .5s;
 	border-radius: 10px;
 }
 

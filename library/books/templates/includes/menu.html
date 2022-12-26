@@ -1,6 +1,7 @@
 <div class="manu">
 	<h2>Категории: </h2>
+	<button class="book book_gkfo all" data-filter="all">All</button>
 	{% for i in menu %}
-		<a class="menu__item" href="category/{{i.id}}"><button class="book book_gkfo">{{ i }}</button></a>
+		<button class="book book_gkfo {{ i }}" data-filter="{{ i }}">{{ i }}</button>
 	{% endfor %}
 </div>

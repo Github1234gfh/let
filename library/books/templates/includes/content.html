@@ -1,6 +1,6 @@
 
 {% for i in books %}
-	<div class="book">
+	<div class="book {{ i.category }} book__item">
 		<h1>{{ i.name_book }}</h1>
 		<p>Автор - {{ i.autor }}</p>
 		<p>Категория - {{ i.category }}</p>
