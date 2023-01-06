@@ -7,10 +7,10 @@
 		<div class="content">
 			{% if user.is_authenticated %}
 				<div class="reg__block">
-					<p><a href="{% url 'logout' %}">Log Out</a></p>
+					<a href="{% url 'logout' %}">Log Out</a>
 				</div>
+				{% include 'includes/menu.html' %}
 				<div class="books">
-					{% include 'includes/menu.html' %}
 					{% include 'includes/content.html' %}
 					<a href="{% url 'add' %}" class="ghjk"><button class="book book_jgkh">Добавить книгу</button></a>
 				</div>
@@ -20,9 +20,9 @@
 					|
 					<a href="{% url 'signup' %}">Sign Up</a>
 				</div>
+				{% include 'includes/menu.html' %}
 				<div class="books">
-					{% include 'includes/menu.html' %}
-					{% include 'includes/content.html' %}
+					{% include 'includes/content_logout.html' %}
 				</div>
 			{% endif %}
 		</div>

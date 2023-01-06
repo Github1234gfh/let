@@ -13,5 +13,8 @@ class Books(models.Model):
 	date = models.DateField('Дата издания')
 	category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
+	def get_absolute_url(self):
+		return '/'
+
 	def __str__(self):
 		return self.name_book
