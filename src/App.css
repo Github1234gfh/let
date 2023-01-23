@@ -9,13 +9,14 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  width: 200px;
+  width: 400px;
 }
 
 .input__search {
   width: 100%;
   border: gray;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+	outline: none;
 }
 
 .autocmplete {
@@ -32,7 +33,11 @@
 
 .autocmplete__item {
   padding: 8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
   transition: .2s;
+	border-bottom: solid 1.1px gray;
 }
 
 .autocmplete__item:hover {
@@ -40,8 +45,8 @@
   background: rgb(220, 220, 220);
 }
 
-.border {
-  width: 100%;
-  height: 1px;
-  background: rgb(173, 173, 173);
+.gffg {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
