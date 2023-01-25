@@ -3,14 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@craco/craco": "^7.0.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
     "antd": "^5.1.6",
     "axios": "^1.2.2",
     "concurrently": "^7.6.0",
-    "craco": "^0.0.3",
     "craco-less": "^2.0.0",
     "json-server": "^0.17.1",
     "react": "^18.2.0",
@@ -20,8 +18,8 @@
   },
   "scripts": {
     "dev": "concurrently \"yarn run server\" \"yarn start\"",
-    "start": "craco start",
-    "build": "craco build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "json-server -w server/db.json -p 3001"

@@ -1,11 +1,22 @@
 
 import Main from "./Components/page/Main";
-import './App.css'
+import './App.less'
+import './Style.css'
+
+import { Button, ConfigProvider } from 'antd';
 
 function App() {
   return (
     <div className="App">
-			<Main />
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: '#0157A0',
+          },
+        }}
+      >
+        <Main />
+      </ConfigProvider>
     </div>
   );
 }

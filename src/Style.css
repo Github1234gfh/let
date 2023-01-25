@@ -1,0 +1,71 @@
+.main-container {
+	display: flex;
+	justify-content: center;
+	padding: 100px 0px;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 400px;
+}
+
+.input__search {
+  width: 100%;
+  border: gray;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+	outline: none;
+}
+
+.autocmplete {
+  background: white;
+  list-style: none;
+  top: 20px;
+  width: 100%;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  max-height: 240px;
+  height: auto;
+  overflow: auto;
+}
+
+.autocmplete__item {
+  padding: 8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+  transition: .2s;
+	border-bottom: solid 1.1px gray;
+}
+
+.autocmplete__item:hover {
+  cursor: pointer;
+  background: rgb(220, 220, 220);
+}
+
+.gffg {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.my-btn-primary {
+	background: linear-gradient(180deg, #283A97 0%, #0157A0 100%);
+	transition: .2s;
+}
+.ant-table-tbody > tr.ant-table-row:hover > td {
+	background: none !important;
+} 
+
+.row-danger {
+	background: rgba(255, 54, 54, 0.75);;
+}
+
+.row-sucxess {
+	background: rgba(153, 255, 153, 0.8);;
+}
+
+.row-normal {
+	background: white;
+}
