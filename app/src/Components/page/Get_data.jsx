@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { _Table } from './Table'
+
 
 export const Get_data = () => {
 	
@@ -13,7 +13,6 @@ export const Get_data = () => {
 				setValue(elem.data)
 			})
 	}, [])
-	return (
-		<_Table value={value}/>
-	)
+
+	return value
 }

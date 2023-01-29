@@ -25,13 +25,13 @@ export const columns = [
 		title: 'Утв.',
 		dataIndex: 'utv',
 		key: 'id',
-		render: val => <Checkbox  checked={val}> </Checkbox>,
+		render: val => <Checkbox  defaultChecked={val}> </Checkbox>,
 	},
 	{
 		title: 'Выполн.',
 		dataIndex: 'vipoln',
 		key: 'id',
-		render: val => <Checkbox  checked={val}> </Checkbox>
+		render: val => <Checkbox  defaultChecked={val}> </Checkbox>
 	},
 	{
 		title: 'Основание',

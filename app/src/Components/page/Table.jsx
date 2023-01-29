@@ -5,19 +5,28 @@ import { useState } from 'react'
 import { columns } from './Columns'
 import { getDate } from './GetDate'
 import { Header } from 'antd/es/layout/layout'
+import { SearchOutlined,  } from '@ant-design/icons';
 
 export const _Table = ({value}) => {
+
+	const SearchandPerson = <div></div>
 	const dataSourse = value.map(elem => ({...elem, key: elem.id}))
 
 	const chabgeBackground = record => record.utv && record.vipoln? 'row-sucxess': getDate(record.date)? 'row-danger': 'row-normal'
 
 	return (
 		<Row >
-			<Col xs={28} md={{span: 16, offset: 4}}>
+			<Col md={24}>
+				<Header className='header-table'>
+					<SearchOutlined />
+					<p>Стажер Фамилия Имя Отчество</p>
+					<p style={{justifySelf: 'flex-end'}}>100%</p>
+				</Header>
 				<Table 
 					rowClassName={(record) => chabgeBackground(record)}
 					columns={columns}
 					rowSelection={{
+						Selected: (elem) => console.log(elem)
 					}}
 					dataSource={dataSourse}
 				/>
