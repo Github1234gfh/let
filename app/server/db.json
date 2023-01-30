@@ -1,4 +1,3 @@
-
 {
   "otdels": [
     {
@@ -26,47 +25,46 @@
       }
     }
   ],
-	"tasks": [
-		{
-			"id": 1,
-			"date": "23.01.2023",
-			"task": "Тестирование Buisness Cats",
-			"typeofTask": "Цели МВО(Годовые)",
-			"plan": "25%",
-			"utv": true,
-			"vipoln": true,
-			"description": "Аналитика"
-		},
-		{
-			"id": 2,
-			"date": "02.02.2023",
-			"task": "Тестирование Buisness Cats CORP",
-			"typeofTask": "Цели МВО(Годовые)",
-			"plan": "25%",
-			"utv": true,
-			"vipoln": false,
-			"description": "Тестирование"
-		},
-		{
-			"id": 3,
-			"date": "03.02.2023",
-			"task": "Тестирование Buisness Cats SEO",
-			"typeofTask": "Цели МВО(Годовые)",
-			"plan": "35%",
-			"utv": false,
-			"vipoln": false,
-			"description": "Разработка"
-		},
-		{
-			"id": 4,
-			"date": "25.01.2023",
-			"task": "Тестирование Buisness Cats Realtime",
-			"typeofTask": "Цели МВО(Годовые)",
-			"plan": "35%",
-			"utv": false,
-			"vipoln": false,
-			"description": "Тестирование"
-		}
-	]
+  "tasks": [
+    {
+      "id": 1,
+      "date": "23.01.2023",
+      "task": "Тестирование Buisness Cats",
+      "typeofTask": "Цели МВО(Годовые)",
+      "plan": "25%",
+      "utv": true,
+      "vipoln": true,
+      "description": "Аналитика"
+    },
+    {
+      "id": 2,
+      "date": "02.02.2023",
+      "task": "Тестирование Buisness Cats CORP",
+      "typeofTask": "Цели МВО(Годовые)",
+      "plan": "25%",
+      "utv": true,
+      "vipoln": false,
+      "description": "Тестирование"
+    },
+    {
+      "id": 3,
+      "date": "03.02.2023",
+      "task": "Тестирование Buisness Cats SEO",
+      "typeofTask": "Цели МВО(Годовые)",
+      "plan": "35%",
+      "utv": false,
+      "vipoln": false,
+      "description": "Разработка"
+    },
+    {
+      "id": 4,
+      "date": "25.01.2023",
+      "task": "Тестирование Buisness Cats COR",
+      "typeofTask": "Цели МВО(Годовые)",
+      "plan": "35%",
+      "utv": false,
+      "vipoln": false,
+      "description": "Разработка"
+    }
+  ]
 }
-

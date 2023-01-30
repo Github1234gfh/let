@@ -1,16 +1,28 @@
-import React from 'react'
-import { Table } from 'antd'
+import React, { useEffect } from 'react'
+import { Button, Table } from 'antd'
 import { Row, Col,  } from 'antd'
 import { useState } from 'react'
-import { columns } from './Columns'
+import { columns, Get_data, Get_func } from './Columns'
 import { getDate } from './GetDate'
 import { Header } from 'antd/es/layout/layout'
 import { SearchOutlined,  } from '@ant-design/icons';
+import Api from './Api';
 
-export const _Table = ({value}) => {
+export const _Table = () => {
+	const [dataSource, setDataSource] = useState([])
 
-	const SearchandPerson = <div></div>
-	const dataSourse = value.map(elem => ({...elem, key: elem.id}))
+	const retri = async () => {
+		const response = await Api.get('/tasks')
+		return response.data
+	}
+	useEffect (() => {
+		const getAllTasks = async () => {
+			const allTasks = await retri()
+			setDataSource(allTasks)
+		}
+		getAllTasks()
+	}, [])
+
 
 	const chabgeBackground = record => record.utv && record.vipoln? 'row-sucxess': getDate(record.date)? 'row-danger': 'row-normal'
 
@@ -28,7 +40,7 @@ export const _Table = ({value}) => {
 					rowSelection={{
 						Selected: (elem) => console.log(elem)
 					}}
-					dataSource={dataSourse}
+					dataSource={dataSource.map(elem => ({...elem, key: elem.id}))}
 				/>
 			</Col>
 		</Row>
