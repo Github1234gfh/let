@@ -34,7 +34,8 @@
       "plan": "25%",
       "utv": true,
       "vipoln": true,
-      "description": "Аналитика"
+      "description": "Аналитика",
+      "key": 1
     },
     {
       "id": 2,
@@ -44,7 +45,8 @@
       "plan": "25%",
       "utv": true,
       "vipoln": false,
-      "description": "Тестирование"
+      "description": "Тестирование",
+      "key": 2
     },
     {
       "id": 3,
@@ -54,7 +56,8 @@
       "plan": "35%",
       "utv": false,
       "vipoln": false,
-      "description": "Разработка"
+      "description": "Разработка",
+      "key": 3
     },
     {
       "id": 4,
@@ -64,7 +67,8 @@
       "plan": "35%",
       "utv": false,
       "vipoln": false,
-      "description": "Разработка"
+      "description": "Разработка",
+      "key": 4
     }
   ]
 }
