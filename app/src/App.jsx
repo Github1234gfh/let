@@ -2,6 +2,7 @@
 import Main from "./Components/page/Main";
 import './App.less'
 import './Style.css'
+import './Override.scss'
 
 import { Button, ConfigProvider } from 'antd';
 

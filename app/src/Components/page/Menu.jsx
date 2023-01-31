@@ -1,32 +1,58 @@
 import { Button, DatePicker, Select, Typography } from "antd"
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import Api from "./Api";
 
 
-export const _Menu = () => {
+export const _Menu = ({ dataSource, change }) => {
 	const dateFormat = 'YYYY/MM'
 	const SelectItem = ['Месяц', 'Квартал', 'Год']
+	const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+	const UtvAll = () => {
+		const copy = Object.assign([], dataSource)
+		dataSource.map(async (task, index) => {
+			copy[index].utv = true
+			await Api.put(`/tasks/${task.id}`, copy[index])
+		})
+		change(copy)
+	}
+
+	const vipolnAll = () => {
+		const copy = Object.assign([], dataSource)
+		dataSource.map(async (task, index) => {
+			copy[index].vipoln = true
+			await Api.put(`/tasks/${task.id}`, copy[index])
+		})
+		change(copy)
+	}
 
 	return (
 		<div className="manu-item">
-			<Typography.Text className="title-home-page" >Портал сотрудника</Typography.Text>
+			<span className="my-title"><Typography.Text >Портал сотрудника</Typography.Text></span>
 			<div className="main-manu">
-				<div className="nav-btns">
-					<Select className="edit-buttons" style={{ borderEadius: 10 }} defaultValue={SelectItem[0]} >
-						{SelectItem.map((elem, index) => { return (<Select.Option sele key={index}>{elem}</Select.Option>) })}
+				<span className="nav-elem">
+					<Select style={{ width: '100%'}} defaultValue={SelectItem[0]} >
+						{SelectItem.map((elem, index) => { return (<Select.Option key={index}>{elem}</Select.Option>) })}
 					</Select>
-					<DatePicker className="edit-buttons" defaultValue={dayjs(new Date(), dateFormat)} format={dateFormat} picker="month" />
-				</div>
-				<div className="border"></div>
-				<div className="nav-btns">
-					<Button className="edit-buttons" type="default">Утвердить все</Button>
-					<Button className="edit-buttons" type="default">Выполнить все</Button>
-					<Button className="edit-buttons" type="default">Утвердить и выполнить</Button>
-				</div>
-				<div className="border"></div>
-				<div className="nav-btns">
-					<Button className="edit-buttons" type="primary" style={{ background: 'linear-gradient(180deg, #283A97 0%, #0157A0 100%)', boxShadow: '0px 2px 0px rgba(0, 0, 0, 0.016)' }}>Создать задачу</Button>
-				</div>
+				</span>
+				<span className="nav-elem">
+					<DatePicker defaultValue={dayjs(new Date(), dateFormat)} format={dateFormat} picker="month" />
+				</span>
+				<span className="border"></span>
+				<span className="nav-elem">
+					<Button className="edit-buttons" onClick={async () => { await UtvAll() }} type="default">Утвердить все</Button>
+				</span>
+				<span className="nav-elem">
+					<Button className="edit-buttons" onClick={async () => { await vipolnAll() }} type="default">Выполнить все</Button>
+				</span>
+				<span className="nav-elem">
+					<Button className="edit-buttons" onClick={async () => { await UtvAll(); await vipolnAll() }} type="default">Утвердить и выполнить</Button>
+				</span>
+				<span className="border"></span>
+				<span className="nav-elem">
+					<Button className="btn-primary" type="primary">Создать задачу</Button>
+				</span>
 			</div>
 		</div>
 	)

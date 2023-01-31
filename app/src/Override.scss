@@ -1,0 +1,60 @@
+// nav - manu
+.my-title {
+	.ant-typography {
+		font-style: normal;
+		font-weight: 400;
+		font-size: 24px;
+		text-decoration: underline #0157A0;
+	}
+}
+
+.nav-elem {
+	padding-right: 20px;
+
+	.ant-select-selector {
+		border-radius: 10px;
+
+	}
+
+	.ant-picker {
+		border-radius: 10px;
+		width: 100%;
+	}
+
+	.ant-btn {
+		border-radius: 10px;
+		width: 100%;
+	}
+}
+
+.btn-primary {
+	background: linear-gradient(180deg, #283A97 0%, #0157A0 100%);
+	box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.016);
+}
+
+// table
+
+.row-danger {
+	background: rgba(255, 54, 54, 0.75) !important;
+	transition: .2s;
+
+}
+
+.row-sucxess {
+	background: rgba(153, 255, 153, 0.8) !important;
+	transition: .5s;
+	
+}
+
+.row-normal {
+	background: white !important;
+	transition: .5s;
+}
+.my-row {
+	.ant-table-cell-row-hover {
+		background-color: unset !important;
+		border-bottom: 1px solid #f0f0f0 !important;
+		border-top: 1px solid #f0f0f0 !important;
+	}
+}
+

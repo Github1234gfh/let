@@ -35,7 +35,8 @@
       "utv": true,
       "vipoln": true,
       "description": "Аналитика",
-      "key": 1
+      "key": 1,
+      "e": false
     },
     {
       "id": 2,
@@ -46,18 +47,20 @@
       "utv": true,
       "vipoln": false,
       "description": "Тестирование",
-      "key": 2
+      "key": 2,
+      "e": false
     },
     {
       "id": 3,
-      "date": "03.02.2023",
+      "date": "01.02.2023",
       "task": "Тестирование Buisness Cats SEO",
       "typeofTask": "Цели МВО(Годовые)",
       "plan": "35%",
       "utv": false,
       "vipoln": false,
       "description": "Разработка",
-      "key": 3
+      "key": 3,
+      "e": false
     },
     {
       "id": 4,
@@ -68,7 +71,8 @@
       "utv": false,
       "vipoln": false,
       "description": "Разработка",
-      "key": 4
+      "key": 4,
+      "e": false
     }
   ]
 }
