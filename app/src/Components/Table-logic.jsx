@@ -85,10 +85,10 @@ export const _TableLogic = ({dataSource, change}) => {
 			key: 'description',
 		},
 		{
-			title: <CloseSquareOutlined onClick={async () => {AllDelete()}} style={{ color: '#0157A0' }} />,
+			title: <CloseSquareOutlined onClick={async () => {AllDelete()}} style={{ color: 'red' }} />,
 			render: record => <CloseSquareOutlined onClick={async () => {
 				ondelete(record.id)
-			}} style={{ color: '#0157A0' }} />
+			}} style={{ color: 'red' }} />
 		}
 	];
 
