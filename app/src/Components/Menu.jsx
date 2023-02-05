@@ -7,13 +7,12 @@ import Api from "./Api";
 export const _Menu = ({ dataSource, change }) => {
 	const dateFormat = 'YYYY/MM'
 	const SelectItem = ['Месяц', 'Квартал', 'Год']
-	const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 	const UtvAll = () => {
 		const copy = Object.assign([], dataSource)
 		dataSource.map(async (task, index) => {
 			copy[index].utv = true
-			await Api.put(`/tasks/${task.id}`, copy[index])
+			await Api.patch(`/tasks/${task.id}`, {utv: copy[index].utv})
 		})
 		change(copy)
 	}
@@ -22,7 +21,7 @@ export const _Menu = ({ dataSource, change }) => {
 		const copy = Object.assign([], dataSource)
 		dataSource.map(async (task, index) => {
 			copy[index].vipoln = true
-			await Api.put(`/tasks/${task.id}`, copy[index])
+			await Api.patch(`/tasks/${task.id}`, {vipoln :copy[index].vipoln})
 		})
 		change(copy)
 	}
@@ -32,7 +31,7 @@ export const _Menu = ({ dataSource, change }) => {
 			<span className="my-title"><Typography.Text >Портал сотрудника</Typography.Text></span>
 			<div className="main-manu">
 				<span className="nav-elem">
-					<Select style={{ width: '100%'}} defaultValue={SelectItem[0]} >
+					<Select style={{ width: '100%' }} defaultValue={SelectItem[0]} >
 						{SelectItem.map((elem, index) => { return (<Select.Option key={index}>{elem}</Select.Option>) })}
 					</Select>
 				</span>

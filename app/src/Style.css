@@ -11,6 +11,7 @@
 	max-width: 1920px;
 	margin: 0 auto;
 	gap: 30px;
+	padding: 50px 20px;
 	font-weight: 500 !important;
 	justify-content: center;
 }
@@ -19,12 +20,17 @@
 	background: linear-gradient(180deg, #004A89 0%, #005BA9 100%) !important;
 	border: 1px solid #D9D9D9 !important;
 	border-radius: 15px !important;
+	width: 100%;
 	padding: 28px 80px 28px 24px !important;
 	display: flex !important;
 	align-items: center !important;
 	color: white !important;
 	gap: 30px !important;
 	margin-bottom: 50px !important;
+}
+
+.presents {
+	justify-self: flex-end ;
 }
 
 .border-main {

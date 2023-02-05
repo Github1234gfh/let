@@ -1,50 +1,48 @@
 import { CloseSquareOutlined, CodepenSquareFilled } from '@ant-design/icons';
-import { Checkbox } from 'antd'
-import Modal from 'antd/es/modal/Modal'
-import axios from 'axios';
+import { Checkbox } from 'antd';
+import Modal from 'antd/es/modal/Modal';
 import { useEffect, useState } from 'react';
 
 import Api from './Api';
 import { _Table } from './Table';
 
-export const _TableLogic = ({dataSource, change}) => {
+export const _TableLogic = ({ dataSource, change }) => {
 
 	const retri = async () => {
-		const response = await Api.get('/tasks')
+		const response = await Api.get('/tasks');
 		return response.data
-	}
+	};
 
 	const AllDelete = () => {
 		dataSource.map(async (task) => {
-			await Api.delete(`/tasks/${task.id}`)
+			await Api.delete(`/tasks/${task.id}`);
 		})
-		change([])
-	}
+		change([]);
+	};
 
-	const update = async (record) => {
-		const response = await Api.put(`/tasks/${record.id}`, record)
-		const { id } = response.data
+	const update = async (record, status, elem) => {
+		const response = await Api.patch(`/tasks/${record.id}`, elem === 'utv'? {utv: status}:{vipoln: status});
+		const { id } = response.data;
 		change(dataSource.map((task) => {
-			return task.id === id ? {...response.data }: task
-		}))
-	}
+			return task.id === id ? { ...response.data } : task
+		}));
+	};
 
 	const ondelete = async (id) => {
-		await Api.delete(`/tasks/${id}`)
+		await Api.delete(`/tasks/${id}`);
 		const newTasks = dataSource.filter((task) => {
 			return task.id !== id
-		})
-		change(newTasks)
-	}
+		});
+		change(newTasks);
+	};
 
 	useEffect(() => {
 		const getAllTasks = async () => {
-			const allTasks = await retri()
-			if (allTasks) change(allTasks)
-		}
-		getAllTasks()
-
-	}, [])
+			const allTasks = await retri();
+			if (allTasks) change(allTasks);
+		};
+		getAllTasks();
+	}, []);
 
 	const columns = [
 		{
@@ -71,13 +69,13 @@ export const _TableLogic = ({dataSource, change}) => {
 			title: 'Утв.',
 			dataIndex: 'utv',
 			key: 'id',
-			render: (value, record) => <Checkbox checked={value} onChange={async (event) => { record.utv = event.target.checked; update(record) }} > </Checkbox>,
+			render: (value, record) => <Checkbox checked={value} onChange={async (event) => { record.utv = event.target.checked; await update(record, record.utv, 'utv') }} > </Checkbox>,
 		},
 		{
 			title: 'Выполн.',
 			dataIndex: 'vipoln',
 			key: 'id',
-			render: (value, record) => <Checkbox checked={value} onChange={async (event) => { record.vipoln = event.target.checked; update(record) }} > </Checkbox>
+			render: (value, record) => <Checkbox checked={value} onChange={async (event) => { record.vipoln = event.target.checked; await update(record, record.vipoln, 'vipoln') }} > </Checkbox>
 		},
 		{
 			title: 'Основание',
@@ -85,7 +83,7 @@ export const _TableLogic = ({dataSource, change}) => {
 			key: 'description',
 		},
 		{
-			title: <CloseSquareOutlined onClick={async () => {AllDelete()}} style={{ color: 'red' }} />,
+			title: <CloseSquareOutlined onClick={async () => { AllDelete() }} style={{ color: 'red' }} />,
 			render: record => <CloseSquareOutlined onClick={async () => {
 				ondelete(record.id)
 			}} style={{ color: 'red' }} />
@@ -94,7 +92,7 @@ export const _TableLogic = ({dataSource, change}) => {
 
 	return (
 		<>
-			<_Table dataSource={dataSource} columns={columns}/>
+			<_Table dataSource={dataSource} columns={columns} />
 		</>
 	)
 }

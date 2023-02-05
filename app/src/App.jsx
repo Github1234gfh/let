@@ -1,5 +1,5 @@
 
-import Main from "./pages/Main";
+import { Main } from './pages/Main'
 import './App.less'
 import './Style.css'
 import './Override.scss'

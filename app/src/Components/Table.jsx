@@ -7,16 +7,16 @@ import { SearchOutlined, } from '@ant-design/icons';
 
 export const _Table = ({ dataSource, columns }) => {
 
-	const chabgeBackground = record => record.utv && record.vipoln ? 'row-sucxess' : getDate(record.date) ? 'row-danger' : 'row-normal'
+	const chabgeBackground = record => record.utv && record.vipoln ? 'row-sucxess' : getDate(record.date) ? 'row-danger' : 'row-normal';
 
 	return (
 		<span className='my-row'>
-			{/*<Row style={{borderRadius: 8}}>
-				<Col md={24}>*/}
+			<Row style={{borderRadius: 8}}>
+				<Col xs={24} md={{span: 24}}>
 					<Header className='header-table'>
 						<SearchOutlined />
 						<p>Стажер Фамилия Имя Отчество</p>
-						<p style={{ justifySelf: 'flex-end' }}>100%</p>
+						<p className=''>100%</p>
 					</Header>
 					<Table
 						rowClassName={(record) => chabgeBackground(record)}
@@ -27,8 +27,8 @@ export const _Table = ({ dataSource, columns }) => {
 						}}
 						dataSource={dataSource.map(elem => ({ ...elem, key: elem.id }))}
 					/>
-				{/*</Col>
-			</Row>*/}
+				</Col>
+			</Row>
 		</span>
 	)
 }

@@ -34,33 +34,27 @@
       "plan": "25%",
       "utv": true,
       "vipoln": true,
-      "description": "Аналитика",
-      "key": 1,
-      "e": false
+      "description": "Аналитика"
     },
     {
       "id": 2,
-      "date": "02.02.2023",
+      "date": "11.02.2023",
       "task": "Тестирование Buisness Cats CORP",
       "typeofTask": "Цели МВО(Годовые)",
       "plan": "25%",
       "utv": true,
       "vipoln": false,
-      "description": "Тестирование",
-      "key": 2,
-      "e": false
+      "description": "Тестирование"
     },
     {
       "id": 3,
-      "date": "01.02.2023",
+      "date": "10.02.2023",
       "task": "Тестирование Buisness Cats SEO",
       "typeofTask": "Цели МВО(Годовые)",
       "plan": "35%",
       "utv": false,
       "vipoln": false,
-      "description": "Разработка",
-      "key": 3,
-      "e": false
+      "description": "Разработка"
     },
     {
       "id": 4,
@@ -70,9 +64,7 @@
       "plan": "35%",
       "utv": false,
       "vipoln": false,
-      "description": "Разработка",
-      "key": 4,
-      "e": false
+      "description": "Разработка"
     }
   ]
 }
