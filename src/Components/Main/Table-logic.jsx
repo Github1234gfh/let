@@ -14,9 +14,8 @@ export const _TableLogic = ({ dataSource, change, loading, changeLoading, token 
 		confirm({
 			title: `Вы уверены, что хотите удалить задачу - ${record.name}?`,
 			onOk: async () => {
-				await Api.delete(`/delete_task/${record.id}/`, {
-					headers: { Authorization: token }
-
+				await Api.delete(`/api/v1/delete_task/${record.id}/`, {
+					headers: { Authorization: `Bearer ${token}` }
 				});
 				const newTasks = dataSource.filter((task) => {
 					return task.id !== record.id;
@@ -33,10 +32,12 @@ export const _TableLogic = ({ dataSource, change, loading, changeLoading, token 
 		const response = await Api.get(
 			'/api/v1/tasks/2/',
 			{ headers: { Authorization: `Bearer ${token}` } }
+			
 		)
+
 		// console.log(response)
 
-		return response.data.tasks;
+		return response.data.Tasks;
 	};
 
 	const AllDelete = () => {
@@ -44,7 +45,7 @@ export const _TableLogic = ({ dataSource, change, loading, changeLoading, token 
 			title: `Вы уверены, что хотите удалить все задачи?`,
 			onOk: async () => {
 				dataSource.map(async (task) => {
-					await Api.delete(`/get_tasks/${task.id}/`);
+					await Api.delete(`/api/v1/delete_task/${task.id}/`);
 				});
 				change([]);
 			},
@@ -57,20 +58,14 @@ export const _TableLogic = ({ dataSource, change, loading, changeLoading, token 
 	const update = async (record, status, elem) => {
 		const CheckField = elem === 'approved' ? { approved: status } : { completed: status }
 		const response = await Api.patch(
-			`/update_task/${record.id}/`,
-
-			{ name: record.name },
-			{ periodicity: record.periodicity },
-			{ task_type: record.task_type },
-			{ date: record.date },
-			// record.primary_goal? { primary_goal: record.primary_goal }: null,
-			
+			`/api/v1/update_task/${record.id}/`,
 			CheckField,
-			{ headers: { Authorization: token} }, 
+			{ headers: { Authorization: `Bearer ${token}`} }, 
 			);
-		const { id } = response.data;
+		console.log(response.data)
+		const { id } = response.data.Task;
 		change(dataSource.map((task) => {
-			return task.id === id ? { ...response.data } : task;
+			return task.id === id ? { ...response.data.Task } : task;
 		}));
 	};
 

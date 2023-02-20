@@ -8,6 +8,28 @@
 	}
 }
 
+//.btn-login {
+//	.ant-btn {
+//		align-self: flex-start;
+//	}
+//}
+
+.edit-form {
+	width: 300px;
+
+}
+
+.my-input-settings {
+	.ant-input-affix-wrapper {
+		display: flex;
+		flex-direction: row-reverse;
+	}
+}
+
+.ant-input-prefix {
+	margin: 0 !important;
+}
+
 .nav-elem {
 	padding-right: 20px;
 
@@ -43,13 +65,14 @@
 .row-sucxess {
 	background: rgba(153, 255, 153, 0.8) !important;
 	transition: .5s;
-	
+
 }
 
 .row-normal {
 	background: rgb(255, 251, 251) !important;
 	transition: .5s;
 }
+
 .my-row {
 	.ant-table-cell-row-hover {
 		background-color: unset !important;
@@ -57,4 +80,3 @@
 		border-top: 1px solid #f0f0f0 !important;
 	}
 }
-

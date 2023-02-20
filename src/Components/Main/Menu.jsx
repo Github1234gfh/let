@@ -37,25 +37,32 @@ export const _Menu = ({ setToken, dataSource, change, type, setType, request, se
 	const UtvAll = () => {
 		const copy = Object.assign([], dataSource);
 		dataSource.map(async (task, index) => {
-			copy[index].utv = true
-			await Api.patch(`/get_decomp_tasks/${task.id}/`, { utv: copy[index].utv });
-		});
-		change(copy);
+			copy[index].approved = true
+			await Api.patch(
+				`/api/v1/update_task/${task.id}/`,
+				{ approved: copy[index].approved },
+				{ headers: { Authorization: `Bearer ${token}` } }
+			)
+		})
+		change(copy)
 	};
 
 	const vipolnAll = () => {
 		const copy = Object.assign([], dataSource);
 		dataSource.map(async (task, index) => {
-			copy[index].vipoln = true;
-			await Api.patch(`/get_decomp_tasks/${task.id}`, { vipoln: copy[index].vipoln });
-		});
+			copy[index].completed = true;
+			await Api.patch(
+				`/api/v1/update_task/${task.id}/`,
+				{ completed: copy[index].completed },
+				{ headers: { Authorization: `Bearer ${token}` } }
+			);
+		})
 		change(copy);
 	};
 
 	const headers = {
 		"fullname": "test",
 		"password": "admin",
-
 	}
 
 	const create = {
@@ -74,11 +81,11 @@ export const _Menu = ({ setToken, dataSource, change, type, setType, request, se
 		localStorage.setItem('user_token', response.data.access);
 		// localStorage.setItem('user_id', response.data.data.user_id);
 		// setToken(response.data.data.user_token)
-		
+
 	}
 
 	const AddTask = async () => {
-		const response = await Api.post('/create_task/', create, {headers: {'Authorization': token,}})
+		const response = await Api.post('/api/v1/create_task/', create, { headers: { 'Authorization': `Bearer ${token}`, } })
 	}
 
 	// console.log(`type=${type}/${request}`)
