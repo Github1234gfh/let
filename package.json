@@ -8,26 +8,24 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
-    "antd": "^5.1.6",
+    "antd": "^5.2.1",
     "axios": "^1.2.2",
     "concurrently": "^7.6.0",
     "craco": "^0.0.3",
     "craco-less": "^2.0.0",
     "dayjs": "^1.11.7",
-    "json-server": "^0.17.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "sass": "^1.57.1",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "dev": "concurrently \"yarn run server\" \"yarn start\"",
     "start": "craco start",
     "build": "craco build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "server": "json-server -w server/db.json -p 3001"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

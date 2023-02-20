@@ -1,10 +1,9 @@
 
-import { Main } from './pages/Main'
 import './App.less'
 import './Style.css'
 import './Override.scss'
-
-import { Button, ConfigProvider } from 'antd';
+import { _Layout } from './Components/Layout';
+import { ConfigProvider } from 'antd';
 
 function App() {
 	return (
@@ -16,7 +15,7 @@ function App() {
 					},
 				}}
 			>
-				<Main />
+				<_Layout />
 			</ConfigProvider>
 		</div>
 	);

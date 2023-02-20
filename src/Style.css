@@ -33,21 +33,13 @@
 	justify-self: flex-end ;
 }
 
-.border-main {
-	top: 244px;
-	left: 450px;
-	width: 1px;
-	background: #D9D9D9;
-	height: 600px;
-
-}
 
 .main-manu {
 	display: flex;
 	flex-direction: column;
 	gap: 30px;
 	border-right: 1px solid #D9D9D9;
-	height: 100vh;
+	height: 420px;
 }
 
 .manu-item {
