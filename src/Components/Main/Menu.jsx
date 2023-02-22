@@ -1,21 +1,18 @@
 import { Button, DatePicker, Select, Typography } from "antd";
 import dayjs from 'dayjs';
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Api from "./Api";
 
-export const _Menu = ({ setToken, dataSource, change, type, setType, request, setRequest, token }) => {
-
-	const [Date, setDate] = useState(dayjs());
+export const _Menu = ({ Date, setDate, UddateTask, dataSource, change, type, setType, request, setRequest, token }) => {
 
 	const ChangeRequeatDate = (types, e) => {
 		let Date = ''
 		types === 'month' ?
-			Date = `${e.$y}-${e.$M}` :
+			Date = `?year=${e.$y}&month=${e.$M + 1}&periodicity=M` :
 			types === 'quarter' ?
-				Date = `${e.$y}-Q${Math.floor((e.$M + 3) / 3)}`
+				Date = `?year=${e.$y}&month=${e.$M + 1}&periodicity=Q`
 				:
-				Date = `${e.$y}`
+				Date = `?year=${e.$y}&periodicity=Y`
 		setRequest(Date);
 	}
 
@@ -34,12 +31,12 @@ export const _Menu = ({ setToken, dataSource, change, type, setType, request, se
 		}
 	];
 
-	const UtvAll = () => {
+	const UtvAll = async () => {
 		const copy = Object.assign([], dataSource);
-		dataSource.map(async (task, index) => {
+		await dataSource.map(async (task, index) => {
 			copy[index].approved = true
 			await Api.patch(
-				`/api/v1/update_task/${task.id}/`,
+				`/api/v1/${UddateTask}/${task.id}/`,
 				{ approved: copy[index].approved },
 				{ headers: { Authorization: `Bearer ${token}` } }
 			)
@@ -47,23 +44,35 @@ export const _Menu = ({ setToken, dataSource, change, type, setType, request, se
 		change(copy)
 	};
 
-	const vipolnAll = () => {
+	const CompleteAnrdAppendAll = async () => {
 		const copy = Object.assign([], dataSource);
-		dataSource.map(async (task, index) => {
+		await dataSource.map(async (task, index) => {
+			copy[index].completed = true;
+			copy[index].approved = true;
+			await Api.patch(
+				`/api/v1/${UddateTask}/${task.id}/`,
+				{
+					approved: copy[index].approved,
+					completed: copy[index].completed
+				},
+				{ headers: { Authorization: `Bearer ${token}` } }
+			);
+		})
+		change(copy);
+	}
+
+	const vipolnAll = async () => {
+		const copy = Object.assign([], dataSource);
+		await dataSource.map(async (task, index) => {
 			copy[index].completed = true;
 			await Api.patch(
-				`/api/v1/update_task/${task.id}/`,
+				`/api/v1/${UddateTask}/${task.id}/`,
 				{ completed: copy[index].completed },
 				{ headers: { Authorization: `Bearer ${token}` } }
 			);
 		})
 		change(copy);
 	};
-
-	const headers = {
-		"fullname": "test",
-		"password": "admin",
-	}
 
 	const create = {
 		'user': 2,
@@ -75,20 +84,10 @@ export const _Menu = ({ setToken, dataSource, change, type, setType, request, se
 
 	// test
 
-	const Login = async () => {
-		const response = await Api.post('/api/v1/token/', headers);
-		// console.log(response.data)
-		localStorage.setItem('user_token', response.data.access);
-		// localStorage.setItem('user_id', response.data.data.user_id);
-		// setToken(response.data.data.user_token)
-
-	}
-
 	const AddTask = async () => {
 		const response = await Api.post('/api/v1/create_task/', create, { headers: { 'Authorization': `Bearer ${token}`, } })
 	}
 
-	// console.log(`type=${type}/${request}`)
 	return (
 		<div className="manu-item">
 			<span className="my-title"><Typography.Text >Портал сотрудника</Typography.Text></span>
@@ -109,14 +108,12 @@ export const _Menu = ({ setToken, dataSource, change, type, setType, request, se
 					<Button className="edit-buttons" onClick={async () => { await vipolnAll() }} type="default">Выполнить все</Button>
 				</span>
 				<span className="nav-elem">
-					<Button className="edit-buttons" onClick={async () => { await UtvAll(); vipolnAll() }} type="default">Утвердить и выполнить</Button>
+					<Button className="edit-buttons" onClick={async () => { await CompleteAnrdAppendAll() }} type="default">Утвердить и выполнить</Button>
 				</span>
 				<span className="border"></span>
 				<span className="nav-elem">
 					<Link to={'/decomp_task'}><Button className="btn-primary" type="primary">Создать задачу</Button></Link>
 				</span>
-				<Button type="primary" onClick={() => Login()}>Login</Button>
-				<Button type="primary" onClick={() => AddTask()}>Add Task</Button>
 			</div>
 		</div>
 	)

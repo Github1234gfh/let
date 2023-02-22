@@ -1,9 +1,9 @@
 import { _LoginContent } from "../Components/Login/Content"
 
-export const Login = () => {
+export const Login = ({token, setToken}) => {
     return (
         <>
-					<_LoginContent />
+					<_LoginContent token={token} setToken={setToken}/>
 				</>
     )
 }

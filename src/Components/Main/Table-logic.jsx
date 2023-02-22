@@ -1,20 +1,24 @@
 import { CloseSquareOutlined } from '@ant-design/icons';
-import { Checkbox, Modal } from 'antd';
-import { useEffect } from 'react';
-
-
+import { Checkbox, Modal, Table } from 'antd';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Api from './Api';
 import { _Table } from './Table';
 
-export const _TableLogic = ({ dataSource, change, loading, changeLoading, token }) => {
+export const _TableLogic = (
+	{ jwtDecoded, Date, UddateTask, setUpdateTask, type, dataSource, change, loading, changeLoading, token, request }
+) => {
 
 	const { confirm } = Modal;
+	const [deleteTask, setDeleteTask] = useState('delete_decomp_task');
+	const Navigate = useNavigate();
+	const [urlToGet, setUrlToGet] = useState(`/api/v1/decomp_tasks/${jwtDecoded.user_id}/${request}`);
 
 	const OnedeleteTask = (record) => {
 		confirm({
 			title: `Вы уверены, что хотите удалить задачу - ${record.name}?`,
 			onOk: async () => {
-				await Api.delete(`/api/v1/delete_task/${record.id}/`, {
+				await Api.delete(`/api/v1/${deleteTask}/${record.id}/`, {
 					headers: { Authorization: `Bearer ${token}` }
 				});
 				const newTasks = dataSource.filter((task) => {
@@ -30,13 +34,12 @@ export const _TableLogic = ({ dataSource, change, loading, changeLoading, token 
 
 	const retri = async () => {
 		const response = await Api.get(
-			'/api/v1/tasks/2/',
+			urlToGet,
 			{ headers: { Authorization: `Bearer ${token}` } }
-			
 		)
-
-		// console.log(response)
-
+		if (response.data.error) {
+			return []
+		}
 		return response.data.Tasks;
 	};
 
@@ -54,14 +57,13 @@ export const _TableLogic = ({ dataSource, change, loading, changeLoading, token 
 			cancelText: 'Закрыть',
 		});
 	};
-	if (token) retri()
 	const update = async (record, status, elem) => {
 		const CheckField = elem === 'approved' ? { approved: status } : { completed: status }
 		const response = await Api.patch(
-			`/api/v1/update_task/${record.id}/`,
+			`/api/v1/${UddateTask}/${record.id}/`,
 			CheckField,
-			{ headers: { Authorization: `Bearer ${token}`} }, 
-			);
+			{ headers: { Authorization: `Bearer ${token}` } },
+		);
 		console.log(response.data)
 		const { id } = response.data.Task;
 		change(dataSource.map((task) => {
@@ -70,12 +72,43 @@ export const _TableLogic = ({ dataSource, change, loading, changeLoading, token 
 	};
 
 	useEffect(() => {
-		const getAllTasks = async () => {
-			const allTasks = await retri();
-			if (token) change(allTasks); changeLoading();
-		};
-		getAllTasks();
-	}, []);
+		if (type === 'year') {
+			setUrlToGet(`/api/v1/tasks/${jwtDecoded.user_id}/${request}`);
+			setUpdateTask('update_task');
+			setDeleteTask('delete_task');
+		}
+		else {
+			setUrlToGet(`/api/v1/decomp_tasks/${jwtDecoded.user_id}/${request}`);
+			setUpdateTask('update_decomp_task');
+			setDeleteTask('delete_decomp_task');
+		}
+	}, [Date])
+
+	useEffect(() => {
+		if (type === 'year') {
+			setUrlToGet(`/api/v1/tasks/${jwtDecoded.user_id}/${request}`);
+			setUpdateTask('update_task');
+			setDeleteTask('delete_task');
+		}
+		else {
+			setUrlToGet(`/api/v1/decomp_tasks/${jwtDecoded.user_id}/${request}`);
+			setUpdateTask('update_decomp_task');
+			setDeleteTask('delete_decomp_task');
+		}
+	}, [type]);
+
+	useEffect(() => {
+		console.log(1)
+		if (localStorage.getItem('user_token')) {
+			const getAllTasks = async () => {
+				const allTasks = await retri();
+				if (token) change(allTasks); changeLoading();
+			};
+			getAllTasks();
+		} else {
+			Navigate('/login');
+		}
+	}, [urlToGet]);
 
 	const columns = [
 		{
@@ -112,7 +145,7 @@ export const _TableLogic = ({ dataSource, change, loading, changeLoading, token 
 		},
 		{
 			title: 'Основание',
-			dataIndex: 'periodicity',
+			dataIndex: 'primary_goal',
 			key: 'id',
 		},
 		{
@@ -123,7 +156,12 @@ export const _TableLogic = ({ dataSource, change, loading, changeLoading, token 
 
 	return (
 		<>
-			<_Table dataSource={dataSource} columns={columns} loading={loading} />
+			{
+				localStorage.getItem('user_token') ?
+					<_Table dataSource={dataSource} columns={columns} loading={loading} jwtDecoded={jwtDecoded} token={token}/>
+					:
+					null
+			}
 		</>
 	)
 }
