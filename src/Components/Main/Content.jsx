@@ -1,51 +1,52 @@
-import React, { useState } from 'react'
-import { Content } from 'antd/es/layout/layout'
-import { _Table } from './Table'
-import { _Menu } from './Menu'
-import { _TableLogic } from './Table-logic'
-import dayjs from 'dayjs'
+import React, { useState } from 'react';
+import { _TableLogic } from './Table-logic';
+import dayjs from 'dayjs';
+import { Col, Row, Space } from 'antd';
+import { Func_Manu_Main } from './FuncManuMain';
 
-export const _Content = () => {
+export const _Content = ({ token, setToken, jwtDecoded }) => {
 
-	const CheckToken = () => {
-		const Token = localStorage.getItem('user_token')
-		if (Token) return Token
-		return false
-	}
-
+	const [Date, setDate] = useState(dayjs());
 	const [dataSource, setDataSource] = useState([]);
-
 	const [loading, setLoading] = useState(true);
-
-	const [token, setToken] = useState(CheckToken);
-
-	const ChnageLoading = () => setLoading(false);
-
 	const [type, setType] = useState('month');
+	const [UddateTask, setUpdateTask] = useState('update_decomp_task');
+	const [request, setRequest] = useState(`?year=${dayjs().$y}&month=${dayjs().$M + 1}&periodicity=M`);
 
-	const [request, setRequest] = useState(`${dayjs().$y}-${dayjs().$M}`);
 
-	const ChangedataSource = (e) => setDataSource(e);
 	return (
-		<Content >
-			<div className='container-main'>
-				<_Menu
-					setToken={setToken}
-					dataSource={dataSource}
-					change={ChangedataSource}
-					type={type} setType={setType}
-					request={request}
-					setRequest={setRequest}
-					token={token}
-				/>
-				<_TableLogic
-					type={type}
-					token={token}
-					dataSource={dataSource}
-					change={ChangedataSource}
-					loading={loading}
-					changeLoading={ChnageLoading} />
-			</div>
-		</Content>
+		<>
+			<Row justify={'space-between'}>
+				<Col span={4}>
+					<Func_Manu_Main
+						Date={Date}
+						setDate={setDate}
+						setToken={setToken}
+						UddateTask={UddateTask}
+						setUpdateTask={setUpdateTask}
+						dataSource={dataSource}
+						setDataSource={setDataSource}
+						type={type} setType={setType}
+						request={request}
+						setRequest={setRequest}
+						token={token}
+					/>
+				</Col>
+				<Col span={19}>
+					<_TableLogic
+						jwtDecoded={jwtDecoded}
+						Date={Date}
+						UddateTask={UddateTask}
+						setUpdateTask={setUpdateTask}
+						request={request}
+						type={type}
+						token={token}
+						dataSource={dataSource}
+						setDataSource={setDataSource}
+						loading={loading}
+						setLoading={setLoading} />
+				</Col>
+			</Row>
+		</>
 	)
 }
